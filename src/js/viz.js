@@ -20,7 +20,7 @@ $( document ).ready(function() {
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
       center: [56, 5],
       minZoom: 2,
-      zoom: 2.3,
+      zoom: 2,
       attributionControl: false
     });
 
