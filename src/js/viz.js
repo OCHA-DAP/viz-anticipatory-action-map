@@ -41,7 +41,7 @@ $( document ).ready(function() {
       for (const marker of data) {
         const el = document.createElement('div');
         el.className = 'marker';
-        el.style.backgroundImage = `url(/assets/markers/${marker['#metadata+icon']}.svg)`;
+        el.style.backgroundImage = `url(assets/markers/${marker['#metadata+icon']}.svg)`;
         
         let typeClass = '';
         if (marker['#metadata+icon'].includes('activated')) typeClass = 'activated';
