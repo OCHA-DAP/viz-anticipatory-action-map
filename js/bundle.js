@@ -54,7 +54,8 @@ $( document ).ready(function() {
         el.addEventListener('mouseover', () => {
           //scroll to country in panel
           let element = document.getElementById(marker["#country+name"]);
-          element.scrollIntoView(false);
+          element.parentNode.scrollTop = element.offsetTop - 15;
+
 
           //show map popup
           map.getCanvas().style.cursor = 'pointer';
