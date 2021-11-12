@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Gotham-Bold';
   src: url("../assets/fonts/Gotham-Bold.otf") format("truetype");
@@ -36,6 +37,12 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.humanitarianicons-Drought-floods:before {
+  content: "\ea4c"; }
+
+.humanitarianicons-Plague:before {
+  content: "\ea4d"; }
 
 .humanitarianicons-Social-gh:before {
   content: "\ea48"; }
@@ -1118,14 +1125,38 @@ a {
 #map {
   height: 100%; }
 
+.mapboxgl-popup-content {
+  padding: 10px; }
+
+/** marker vars **/
 .marker {
   background-size: 100%;
   height: 54px;
   margin-top: -27px;
   width: 38px; }
-
-.mapboxgl-popup-content {
-  padding: 10px; }
+  .marker:before {
+    content: var(--content, "");
+    font-family: 'Humanitarian-Icons-v02';
+    font-size: 17px;
+    position: absolute;
+    top: 9px;
+    left: 10px; }
+  .marker.development:before {
+    color: #808080; }
+  .marker.endorsed:before {
+    color: #F2645A; }
+  .marker.activated:before {
+    color: #1BB580; }
+  .marker.drought:before {
+    content: ""; }
+  .marker.drought-floods:before {
+    content: ""; }
+  .marker.floods:before {
+    content: ""; }
+  .marker.plague:before {
+    content: ""; }
+  .marker.storms:before {
+    content: ""; }
 
 .label {
   color: #808080;
@@ -1137,6 +1168,8 @@ a {
   .label .type {
     font-family: 'Gotham-Book';
     text-transform: capitalize; }
+  .label.development {
+    color: #808080; }
   .label.endorsed {
     color: #F2645A; }
   .label.activated {
@@ -1172,9 +1205,23 @@ a {
   width: 350px;
   z-index: 2; }
   #panel .panel-inner {
-    height: 200px;
-    margin: 15px;
-    overflow-y: scroll; }
+    height: 215px;
+    margin: 15px 15px 0;
+    overflow-y: scroll;
+    padding-bottom: 50px; }
+  #panel .panel-overlay {
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 70%, white 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    height: 230px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%; }
   #panel table {
     border-spacing: 0;
     border-top: 1px solid #DDD;

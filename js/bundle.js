@@ -21,18 +21,17 @@ $( document ).ready(function() {
       container: 'map',
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
       center: [62, 5],
-      minZoom: 2,
+      minZoom: 1.8,
       zoom: 2,
       attributionControl: false
     });
 
-    // Add zoom and rotation controls to the map.
+    // add map controls
     map.addControl(new mapboxgl.NavigationControl());
+    map.scrollZoom.disable();
 
     map.on('load', function() {
-      console.log('map loaded')
-      
-      // create the popup
+      // create popup
       const popup = new mapboxgl.Popup({
         anchor: 'top',
         closeButton: false,
@@ -41,25 +40,29 @@ $( document ).ready(function() {
 
       //init map markers
       for (const marker of data) {
+        let coords = { lat: Number(marker['#geo+lat']), lon: Number(marker['#geo+lon']) };
+        let typeClass = marker['#metadata+icon'];
+        let statusClass = 'development';
+        if (marker['#status+name'].toLowerCase().includes('activated')) statusClass = 'activated';
+        if (marker['#status+name'].toLowerCase().includes('endorsed')) statusClass = 'endorsed';
+
         const el = document.createElement('div');
         el.className = 'marker';
-        el.style.backgroundImage = `url(https://baripembo.github.io/viz-anticipatory-action-map/assets/markers/${marker['#metadata+icon']}.svg)`;
+        el.style.backgroundImage = `url(https://baripembo.github.io/viz-anticipatory-action-map/assets/markers/marker_${statusClass}.svg)`;
+
         
-        let typeClass = '';
-        if (marker['#metadata+icon'].includes('activated')) typeClass = 'activated';
-        if (marker['#metadata+icon'].includes('endorsed')) typeClass = 'endorsed';
+        el.classList.add(statusClass);
+        el.classList.add(typeClass);
         
-        let coords = { lat: Number(marker['#geo+lat']), lon: Number(marker['#geo+lon']) };
 
         el.addEventListener('mouseover', () => {
           //scroll to country in panel
           let element = document.getElementById(marker["#country+name"]);
           element.parentNode.scrollTop = element.offsetTop - 15;
 
-
           //show map popup
           map.getCanvas().style.cursor = 'pointer';
-          let popupText = `<div class="label ${typeClass}">${marker["#country+name"]}<div class="type">${marker["#event+name"]}</div></div>`;
+          let popupText = `<div class="label ${statusClass}">${marker["#country+name"]}<div class="type">${marker["#event+name"]}</div></div>`;
           popup.setLngLat(coords).setHTML(popupText).addTo(map);
         });
 
