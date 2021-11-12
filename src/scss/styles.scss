@@ -51,19 +51,63 @@ a {
 	height: 100%;
 }
 
+.mapboxgl-popup-content {
+	padding: 10px;
+}
+
+/** marker vars **/
+$development: #808080;
+$endorsed: #F2645A;
+$activated: #1BB580;
+
+$drought: '\e94d';
+$drought-floods: '\ea4c';
+$floods: '\e963';
+$plague: '\ea4d';
+$storms: '\e93f';
+
 .marker {
   background-size: 100%;
   height: 54px;
 	margin-top: -27px; //half the icon height
 	width: 38px;
-}
-
-.mapboxgl-popup-content {
-	padding: 10px;
+	&:before {
+		//content: '\e963';
+		content: var(--content, $floods);
+  	font-family: 'Humanitarian-Icons-v02';     
+  	font-size: 17px;
+    position: absolute;
+    top: 9px;
+    left: 10px;
+	}
+	&.development:before {
+		color: $development;
+	}
+	&.endorsed:before {
+		color: $endorsed;
+	}
+	&.activated:before {
+		color: $activated;
+	}
+	&.drought:before {
+		content: $drought;
+	}
+	&.drought-floods:before {
+		content: $drought-floods;
+	}
+	&.floods:before {
+		content: $floods;
+	}
+	&.plague:before {
+		content: $plague;
+	}
+	&.storms:before {
+		content: $storms;
+	}
 }
 
 .label {
-	color: #808080;
+	color: $development;
   font-family: 'Gotham-Bold';
   font-size: 14px;
   line-height: 18px;
@@ -73,11 +117,14 @@ a {
   	font-family: 'Gotham-Book';
   	text-transform: capitalize;
   }
+	&.development {
+		color: $development;
+	}
 	&.endorsed {
-		color: #F2645A;
+		color: $endorsed;
 	}
 	&.activated {
-		color: #1BB580;
+		color: $activated;
 	}
 }
 
@@ -115,9 +162,21 @@ a {
 	width: 350px;
 	z-index: 2;
 	.panel-inner {
-		height: 200px;
-		margin: 15px;
+		height: 215px;
+		margin: 15px 15px 0;
 		overflow-y: scroll;
+		padding-bottom: 50px;
+	}
+	.panel-overlay {
+		background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 70%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 70%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		height: 230px;
+		left: 0;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 	table {
 		border-spacing: 0;

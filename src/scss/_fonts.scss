@@ -30,7 +30,6 @@
   font-style: normal;
   font-display: block;
 }
-
 [class^="humanitarianicons-"], [class*=" humanitarianicons-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Humanitarian-Icons-v02' !important;
@@ -46,6 +45,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.humanitarianicons-Drought-floods:before {
+  content: "\ea4c";
+}
+.humanitarianicons-Plague:before {
+  content: "\ea4d";
+}
 .humanitarianicons-Social-gh:before {
   content: "\ea48";
 }
