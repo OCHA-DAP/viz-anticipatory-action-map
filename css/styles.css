@@ -1239,6 +1239,8 @@ a {
           width: 40%; }
 
 @media only screen and (max-width: 767px) {
+  .container {
+    height: 600px; }
   #panel {
     left: 50%;
     transform: translateX(-50%);
