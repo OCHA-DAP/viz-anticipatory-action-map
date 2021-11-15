@@ -1240,7 +1240,7 @@ a {
 
 @media only screen and (max-width: 767px) {
   .container {
-    height: 600px; }
+    height: 577px; }
   #panel {
     left: 50%;
     transform: translateX(-50%);
