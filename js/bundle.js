@@ -17,14 +17,14 @@ $( document ).ready(function() {
   function initMap() {
     const zoomLevel = (isMobile) ? 1 : 2;
     const minZoomLevel = (isMobile) ? 0 : 1.8;
-    const centerPos = (isMobile) ? [42, 5] : [62, 5];
+    const centerPos = (isMobile) ? [42, -10] : [62, 5];
 
     //init mapbox
     mapboxgl.accessToken = 'pk.eyJ1IjoiaHVtZGF0YSIsImEiOiJja2FvMW1wbDIwMzE2MnFwMW9teHQxOXhpIn0.Uri8IURftz3Jv5It51ISAA';
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
-      center: [62, 5],
+      center: centerPos,
       minZoom: minZoomLevel,
       zoom: zoomLevel,
       attributionControl: false
