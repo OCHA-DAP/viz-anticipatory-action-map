@@ -16,8 +16,8 @@ $( document ).ready(function() {
 
   function initMap() {
     const zoomLevel = (isMobile) ? 1 : 2;
-    const minZoomLevel = (isMobile) ? 1.3 : 1.8;
-    const centerPos = (isMobile) ? [42, -15] : [62, 5];
+    const minZoomLevel = (isMobile) ? 1 : 1.8;
+    const centerPos = (isMobile) ? [32, -15] : [62, 5];
 
     //init mapbox
     mapboxgl.accessToken = 'pk.eyJ1IjoiaHVtZGF0YSIsImEiOiJja2FvMW1wbDIwMzE2MnFwMW9teHQxOXhpIn0.Uri8IURftz3Jv5It51ISAA';
