@@ -1237,3 +1237,9 @@ a {
         #panel table tr td:first-child {
           font-weight: 600;
           width: 40%; }
+
+@media only screen and (max-width: 767px) {
+  #panel {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; } }
