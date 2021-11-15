@@ -201,5 +201,13 @@ $storms: '\e93f';
 
 
 @media only screen and (max-width: 767px) {
-
+	#panel {
+    left: 50%;
+    transform: translateX(-50%);
+		width: 90%;
+	}
+	#legend {
+		left: 20px;
+		top: 20px;
+	}
 }

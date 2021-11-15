@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_edit&strip-headers=on&force=on&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vSuwMFCg_aLAghw4CzGeL5xpGimXi4k4dFmqpvlIAt4wzZYU8GnmRANLT6dHOZwe0FpFmQ4r_Bd7iyy%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv';
-  const isMobile = $(window).width()<600? true : false;
+  const isMobile = $(window).width()<767? true : false;
   let data = [];
 
   function getData() {
@@ -13,14 +13,18 @@ $( document ).ready(function() {
   }
 
   function initMap() {
+    const zoomLevel = (isMobile) ? 1 : 2;
+    const minZoomLevel = (isMobile) ? 0 : 1.8;
+    const centerPos = (isMobile) ? [42, -10] : [62, 5];
+
     //init mapbox
     mapboxgl.accessToken = 'pk.eyJ1IjoiaHVtZGF0YSIsImEiOiJja2FvMW1wbDIwMzE2MnFwMW9teHQxOXhpIn0.Uri8IURftz3Jv5It51ISAA';
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
-      center: [62, 5],
-      minZoom: 1.8,
-      zoom: 2,
+      center: centerPos,
+      minZoom: minZoomLevel,
+      zoom: zoomLevel,
       attributionControl: false
     });
 
