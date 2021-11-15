@@ -1125,6 +1125,9 @@ a {
 #map {
   height: 100%; }
 
+.mapboxgl-popup {
+  z-index: 3; }
+
 .mapboxgl-popup-content {
   padding: 10px; }
 
