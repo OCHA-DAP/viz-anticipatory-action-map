@@ -16,7 +16,7 @@ $( document ).ready(function() {
 
   function initMap() {
     const zoomLevel = (isMobile) ? 1 : 2;
-    const minZoomLevel = (isMobile) ? 0 : 1.8;
+    const minZoomLevel = (isMobile) ? 1.3 : 1.8;
     const centerPos = (isMobile) ? [42, -15] : [62, 5];
 
     //init mapbox
