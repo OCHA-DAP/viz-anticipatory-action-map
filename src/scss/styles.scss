@@ -51,6 +51,10 @@ a {
 	height: 100%;
 }
 
+.mapboxgl-popup {
+	z-index: 3;
+}
+
 .mapboxgl-popup-content {
 	padding: 10px;
 }
@@ -189,10 +193,10 @@ $storms: '\e93f';
 			td {
 				border-bottom: 1px solid #DDD;
 				padding: 2px 0;
-				width: 60%;
+				width: 55%;
 				&:first-child {
 					font-weight: 600;
-					width: 40%;
+					width: 45%;
 				}
 			}
 		}
@@ -201,6 +205,9 @@ $storms: '\e93f';
 
 
 @media only screen and (max-width: 767px) {
+	.container {
+		height: 577px;
+	}
 	#panel {
     left: 50%;
     transform: translateX(-50%);
