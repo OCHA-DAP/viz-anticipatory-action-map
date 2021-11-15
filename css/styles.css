@@ -1233,10 +1233,10 @@ a {
       #panel table tr td {
         border-bottom: 1px solid #DDD;
         padding: 2px 0;
-        width: 60%; }
+        width: 55%; }
         #panel table tr td:first-child {
           font-weight: 600;
-          width: 40%; }
+          width: 45%; }
 
 @media only screen and (max-width: 767px) {
   .container {
