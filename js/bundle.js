@@ -15,7 +15,7 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 0 : 2;
+    const zoomLevel = (isMobile) ? 0 : 1.8;
     const minZoomLevel = (isMobile) ? 0.9 : 1.8;
     const centerPos = (isMobile) ? [62, -10] : [62, 5];
 
