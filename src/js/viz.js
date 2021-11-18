@@ -13,7 +13,7 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 0 : 2;
+    const zoomLevel = (isMobile) ? 0 : 1.8;
     const minZoomLevel = (isMobile) ? 0.9 : 1.8;
     const centerPos = (isMobile) ? [62, -10] : [62, 5];
 
@@ -50,12 +50,9 @@ $( document ).ready(function() {
 
         const el = document.createElement('div');
         el.className = 'marker';
-        el.style.backgroundImage = `url(https://baripembo.github.io/viz-anticipatory-action-map/assets/markers/marker_${statusClass}.svg)`;
-
-        
+        el.style.backgroundImage = `url(https://ocha-dap.github.io/viz-anticipatory-action-map/assets/markers/marker_${statusClass}.svg)`;
         el.classList.add(statusClass);
         el.classList.add(typeClass);
-        
 
         el.addEventListener('mouseover', () => {
           //scroll to country in panel
@@ -91,7 +88,8 @@ $( document ).ready(function() {
       content += `<tr><td>Trigger Indicators: </td><td>${country['#indicator+text']}</td></tr>`;
       content += `<tr><td>Status: </td><td>${country['#status+name']}</td></tr>`;
       content += `<tr><td>Last activations: </td><td>${activations}</td></tr>`;
-      content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">Link</a></td></tr>`;
+      content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">See code</a></td></tr>`;
+      content += `<tr><td>Framework document: </td><td><a href="${country['#project+document']}" target="_blank">Read document</a></td></tr>`;
       content += '</table>'
     }
     $('#panel .panel-inner').html(content);
