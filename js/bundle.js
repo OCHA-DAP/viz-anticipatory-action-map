@@ -91,7 +91,7 @@ $( document ).ready(function() {
       content += `<tr><td>Status: </td><td>${country['#status+name']}</td></tr>`;
       content += `<tr><td>Last activations: </td><td>${activations}</td></tr>`;
       content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">See code</a></td></tr>`;
-      content += `<tr><td>Framework document: </td><td><a href="${country['#project+document']}" target="_blank">Read document</a></td></tr>`;
+      content += `<tr><td>Framework: </td><td><a href="${country['#project+document']}" target="_blank">Read document</a></td></tr>`;
       content += '</table>'
     }
     $('#panel .panel-inner').html(content);
