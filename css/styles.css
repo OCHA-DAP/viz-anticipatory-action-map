@@ -1231,7 +1231,6 @@ a {
     margin: 0 0 20px;
     width: 100%; }
     #panel table tr {
-      text-transform: capitalize;
       vertical-align: top; }
       #panel table tr td {
         border-bottom: 1px solid #DDD;
