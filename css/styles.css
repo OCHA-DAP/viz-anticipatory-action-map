@@ -1179,16 +1179,29 @@ a {
     color: #1BB580; }
 
 #legend {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #888;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   left: 20px;
   max-width: 390px;
+  overflow: hidden;
   padding: 20px;
   position: absolute;
   top: 20px;
   z-index: 2; }
+  #legend.collapsed {
+    height: 34px; }
+    #legend.collapsed .expandBtn:before {
+      content: "\e94b"; }
+  #legend .expandBtn {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+    #legend .expandBtn:before {
+      content: "\ea2a";
+      font-family: 'Humanitarian-Icons-v02'; }
   #legend .title,
   #legend .header {
     font-family: 'Gotham-Bold';
@@ -1262,4 +1275,8 @@ a {
     width: 90%; }
   #legend {
     left: 20px;
-    top: 20px; } }
+    padding: 10px;
+    top: 20px;
+    width: 80%; }
+    #legend .expandBtn {
+      display: block; } }

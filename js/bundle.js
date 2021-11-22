@@ -77,6 +77,14 @@ $( document ).ready(function() {
           .setLngLat(coords)
           .addTo(map);
       }
+
+      if (isMobile) {
+        $('#legend').addClass('collapsed');      
+
+        $('#legend').on('click', function() {
+          $(this).toggleClass('collapsed');
+        });
+      }
     });
   }
 
