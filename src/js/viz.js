@@ -5,7 +5,7 @@ $( document ).ready(function() {
 
   function getData() {
     d3.json(DATA_URL).then(function(d) {
-      console.log(d);
+      //console.log(d);
       data = d;
       initMap();
       initPanel();
@@ -15,7 +15,7 @@ $( document ).ready(function() {
   function initMap() {
     const zoomLevel = (isMobile) ? 0 : 1.8;
     const minZoomLevel = (isMobile) ? 0.9 : 1.8;
-    const centerPos = (isMobile) ? [62, -10] : [62, 5];
+    const centerPos = (isMobile) ? [62, -10] : [60, 15];
 
     //init mapbox
     mapboxgl.accessToken = 'pk.eyJ1IjoiaHVtZGF0YSIsImEiOiJja2FvMW1wbDIwMzE2MnFwMW9teHQxOXhpIn0.Uri8IURftz3Jv5It51ISAA';
@@ -75,6 +75,14 @@ $( document ).ready(function() {
           .setLngLat(coords)
           .addTo(map);
       }
+
+      if (isMobile) {
+        $('#legend').addClass('collapsed');      
+
+        $('#legend').on('click', function() {
+          $(this).toggleClass('collapsed');
+        });
+      }
     });
   }
 
@@ -84,12 +92,12 @@ $( document ).ready(function() {
       let activations = country['#value+spend'].replace('|', '<br>');
       content += `<h2 id="${country['#country+name']}">${country['#country+name']}</h2>`;
       content += '<table>';
-      content += `<tr><td>Shock: </td><td>${country['#event+name']}</td></tr>`;
+      content += `<tr><td>Shock: </td><td class="shock">${country['#event+name']}</td></tr>`;
       content += `<tr><td>Trigger Indicators: </td><td>${country['#indicator+text']}</td></tr>`;
       content += `<tr><td>Status: </td><td>${country['#status+name']}</td></tr>`;
       content += `<tr><td>Last activations: </td><td>${activations}</td></tr>`;
-      content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">See code</a></td></tr>`;
       content += `<tr><td>Framework: </td><td><a href="${country['#project+document']}" target="_blank">Read document</a></td></tr>`;
+      content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">See code</a></td></tr>`;
       content += '</table>'
     }
     $('#panel .panel-inner').html(content);
