@@ -86,7 +86,7 @@ $( document ).ready(function() {
       let activations = country['#value+spend'].replace('|', '<br>');
       content += `<h2 id="${country['#country+name']}">${country['#country+name']}</h2>`;
       content += '<table>';
-      content += `<tr><td>Shock: </td><td>${country['#event+name']}</td></tr>`;
+      content += `<tr><td>Shock: </td><td class="shock">${country['#event+name']}</td></tr>`;
       content += `<tr><td>Trigger Indicators: </td><td>${country['#indicator+text']}</td></tr>`;
       content += `<tr><td>Status: </td><td>${country['#status+name']}</td></tr>`;
       content += `<tr><td>Last activations: </td><td>${activations}</td></tr>`;

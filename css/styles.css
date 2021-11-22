@@ -1179,24 +1179,35 @@ a {
     color: #1BB580; }
 
 #legend {
-  color: #666;
-  font-family: 'Gotham-Book';
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #888;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
   left: 40px;
+  max-width: 390px;
+  padding: 20px;
   position: absolute;
   top: 40px;
   z-index: 2; }
+  #legend .title,
   #legend .header {
     font-family: 'Gotham-Bold';
-    font-size: 16px;
-    margin-bottom: 5px; }
+    font-size: 14px;
+    margin-bottom: 10px; }
+  #legend .header {
+    text-transform: uppercase; }
   #legend ul {
     list-style-type: none;
     margin: 0;
     padding: 0; }
+    #legend ul li {
+      display: flex;
+      margin-bottom: 15px; }
+      #legend ul li:last-child {
+        margin-bottom: 0; }
   #legend .icon {
     height: 28px;
-    padding-right: 5px;
+    padding-right: 8px;
     vertical-align: middle; }
 
 #panel {
@@ -1239,6 +1250,8 @@ a {
         #panel table tr td:first-child {
           font-weight: 600;
           width: 45%; }
+        #panel table tr td .shock {
+          text-transform: capitalize; }
 
 @media only screen and (max-width: 700px) {
   .container {
