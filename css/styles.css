@@ -1183,11 +1183,11 @@ a {
   color: #888;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 14px;
-  left: 40px;
+  left: 20px;
   max-width: 390px;
   padding: 20px;
   position: absolute;
-  top: 40px;
+  top: 20px;
   z-index: 2; }
   #legend .title,
   #legend .header {
