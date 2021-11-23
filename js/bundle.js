@@ -26,6 +26,7 @@ $( document ).ready(function() {
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
       center: centerPos,
       minZoom: minZoomLevel,
+      maxZoom: minZoomLevel+1,
       zoom: zoomLevel,
       attributionControl: false
     });
