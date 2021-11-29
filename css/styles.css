@@ -1147,9 +1147,9 @@ a {
   .marker.development:before {
     color: #808080; }
   .marker.endorsed:before {
-    color: #F2645A; }
-  .marker.activated:before {
     color: #1BB580; }
+  .marker.activated:before {
+    color: #F2645A; }
   .marker.drought:before {
     content: ""; }
   .marker.drought-floods:before {
@@ -1174,9 +1174,9 @@ a {
   .label.development {
     color: #808080; }
   .label.endorsed {
-    color: #F2645A; }
-  .label.activated {
     color: #1BB580; }
+  .label.activated {
+    color: #F2645A; }
 
 #legend {
   background-color: rgba(255, 255, 255, 0.85);

@@ -8,7 +8,8 @@ $( document ).ready(function() {
   function getData() {
     d3.json(DATA_URL).then(function(d) {
       //console.log(d);
-      data = d;
+      data = d.sort((a, b) => (a['#country+name'] > b['#country+name']) ? 1 : -1)
+
       initMap();
       initPanel();
     });
@@ -48,7 +49,7 @@ $( document ).ready(function() {
         let coords = { lat: Number(marker['#geo+lat']), lon: Number(marker['#geo+lon']) };
         let typeClass = marker['#metadata+icon'];
         let statusClass = 'development';
-        if (marker['#status+name'].toLowerCase().includes('activated')) statusClass = 'activated';
+        //if (marker['#status+name'].toLowerCase().includes('activated')) statusClass = 'activated';
         if (marker['#status+name'].toLowerCase().includes('endorsed')) statusClass = 'endorsed';
 
         const el = document.createElement('div');
@@ -93,14 +94,16 @@ $( document ).ready(function() {
     let content = '';
     for (const country of data) {
       let activations = country['#value+spend'].replace('|', '<br>');
+      let framework = country['#project+document']!=='' ? `<a href="${country['#project+document']}" target="_blank">Read document</a>` : '';
+      let code = country['#project+url']!=='' ? `<a href="${country['#project+url']}" target="_blank">See code</a>` : '';
       content += `<h2 id="${country['#country+name']}">${country['#country+name']}</h2>`;
       content += '<table>';
       content += `<tr><td>Shock: </td><td class="shock">${country['#event+name']}</td></tr>`;
       content += `<tr><td>Trigger Indicators: </td><td>${country['#indicator+text']}</td></tr>`;
       content += `<tr><td>Status: </td><td>${country['#status+name']}</td></tr>`;
       content += `<tr><td>Last activations: </td><td>${activations}</td></tr>`;
-      content += `<tr><td>Framework: </td><td><a href="${country['#project+document']}" target="_blank">Read document</a></td></tr>`;
-      content += `<tr><td>Analysis code: </td><td><a href="${country['#project+url']}" target="_blank">See code</a></td></tr>`;
+      content += `<tr><td>Framework: </td><td>${framework}</td></tr>`;
+      content += `<tr><td>Analysis code: </td><td>${code}</td></tr>`;
       content += '</table>'
     }
     $('#panel .panel-inner').html(content);
