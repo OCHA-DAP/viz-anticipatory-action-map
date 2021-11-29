@@ -1202,12 +1202,10 @@ a {
     #legend .expandBtn:before {
       content: "\ea2a";
       font-family: 'Humanitarian-Icons-v02'; }
-  #legend .title,
   #legend .header {
     font-family: 'Gotham-Bold';
     font-size: 14px;
-    margin-bottom: 10px; }
-  #legend .header {
+    margin-bottom: 10px;
     text-transform: uppercase; }
   #legend ul {
     list-style-type: none;
