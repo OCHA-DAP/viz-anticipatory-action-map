@@ -1186,7 +1186,7 @@ a {
   left: 20px;
   max-width: 390px;
   overflow: hidden;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   top: 20px;
   z-index: 2; }
@@ -1275,7 +1275,6 @@ a {
     width: 90%; }
   #legend {
     left: 20px;
-    padding: 10px;
     top: 20px;
     width: 80%; }
     #legend .expandBtn {
