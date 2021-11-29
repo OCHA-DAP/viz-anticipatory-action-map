@@ -61,8 +61,8 @@ a {
 
 /** marker vars **/
 $development: #808080;
-$endorsed: #F2645A;
-$activated: #1BB580;
+$endorsed: #1BB580;
+$activated: #F2645A;
 
 $drought: '\e94d';
 $drought-floods: '\ea4c';
@@ -140,7 +140,7 @@ $storms: '\e93f';
 	left: 20px;
 	max-width: 390px;
 	overflow: hidden;
-	padding: 20px;
+	padding: 10px;
 	position: absolute;
 	top: 20px;
 	z-index: 2;
@@ -250,7 +250,6 @@ $storms: '\e93f';
 	}
 	#legend {
 		left: 20px;
-		padding: 10px;
 		top: 20px;
 		width: 80%;
 		.expandBtn {
