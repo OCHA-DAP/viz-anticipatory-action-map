@@ -24,7 +24,7 @@ $( document ).ready(function() {
     //init mapbox
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
+      style: 'mapbox://styles/humdata/cl3lpk27k001k15msafr9714b',//ckaoa6kf53laz1ioek5zq97qh',
       center: centerPos,
       minZoom: minZoomLevel,
       maxZoom: minZoomLevel+1,
