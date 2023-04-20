@@ -5,6 +5,9 @@ $( document ).ready(function() {
   const isMobile = $(window).width()<700? true : false;
   let data = [];
 
+  mapboxgl.baseApiUrl='https://data.humdata.org/mapbox';
+  mapboxgl.accessToken = 'cacheToken';
+
   function getData() {
     d3.json(DATA_URL).then(function(d) {
       //console.log(d);
@@ -21,7 +24,6 @@ $( document ).ready(function() {
     const centerPos = (isMobile) ? [62, -10] : [60, 15];
 
     //init mapbox
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaHVtZGF0YSIsImEiOiJja2hnbWs5NzkxMXh2MnNvcmF6dXIxMWE0In0.0GfmJoEJyWFQ5UzNxl2WgA';
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/humdata/ckaoa6kf53laz1ioek5zq97qh',
