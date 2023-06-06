@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('jquery');
 
 $( document ).ready(function() {
-  const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vSuwMFCg_aLAghw4CzGeL5xpGimXi4k4dFmqpvlIAt4wzZYU8GnmRANLT6dHOZwe0FpFmQ4r_Bd7iyy%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv';
+  const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vSuwMFCg_aLAghw4CzGeL5xpGimXi4k4dFmqpvlIAt4wzZYU8GnmRANLT6dHOZwe0FpFmQ4r_Bd7iyy%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
   const isMobile = $(window).width()<700? true : false;
   let data = [];
 
@@ -19,9 +19,9 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 0 : 1.8;
-    const minZoomLevel = (isMobile) ? 0.9 : 1.8;
-    const centerPos = (isMobile) ? [62, -10] : [60, 15];
+    const zoomLevel = (isMobile) ? 0 : 1.3;
+    const minZoomLevel = (isMobile) ? 0 : 0;
+    const centerPos = (isMobile) ? [85, 0] : [85, 0];
 
     //init mapbox
     const map = new mapboxgl.Map({
