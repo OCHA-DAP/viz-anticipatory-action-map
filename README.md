@@ -1,17 +1,3 @@
-# Viz Starter
+# Anticipatory Action Map
 
-### Set up
-* Check out the repository
-* Run `npm install`
-
-### Build the project
-`npm run build`
-
-### Start the local server
-`npm start`
-
-### Run watch for automatic updates during development
-`npm run watch`
-
-### Deploy
-`npm run deploy`
+Front-end code for [Anticipatory Action Map](https://centre.humdata.org/anticipatory-action/)
