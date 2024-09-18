@@ -73,17 +73,17 @@ $storms: '\e940';
 
 .marker {
   background-size: 100%;
-  height: 54px;
-	margin-top: -27px; //half the icon height
-	width: 38px;
+  height: 50px;
+	margin-top: -25px; //half the icon height
+	width: 34px;
 	&:before {
 		//content: '\e963';
 		content: var(--content, $floods);
   	font-family: 'Humanitarian-Icons-v02';     
-  	font-size: 17px;
+  	font-size: 15px;
     position: absolute;
-    top: 9px;
-    left: 10px;
+    top: 8px;
+    left: 9px;
 	}
 	&.development:before {
 		color: $development;
