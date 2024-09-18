@@ -2,6 +2,7 @@ $( document ).ready(function() {
   const DATA_URL = 'https://proxy.hxlstandard.org/data.objects.json?dest=data_view&url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2Fe%2F2PACX-1vSuwMFCg_aLAghw4CzGeL5xpGimXi4k4dFmqpvlIAt4wzZYU8GnmRANLT6dHOZwe0FpFmQ4r_Bd7iyy%2Fpub%3Fgid%3D0%26single%3Dtrue%26output%3Dcsv&force=on';
   const isMobile = $(window).width()<700? true : false;
   let data = [];
+  let map;
 
   mapboxgl.baseApiUrl='https://data.humdata.org/mapbox';
   mapboxgl.accessToken = 'cacheToken';
@@ -17,17 +18,18 @@ $( document ).ready(function() {
   }
 
   function initMap() {
-    const zoomLevel = (isMobile) ? 0 : 1.4;
+    const zoomLevel = (isMobile) ? 0 : 1;
+    const maxZoomLevel = 3;
     const minZoomLevel = (isMobile) ? 0 : 0;
-    const centerPos = (isMobile) ? [85, 0] : [85, 0];
+    const centerPos = (isMobile) ? [85, 0] : [50, 0];
 
     //init mapbox
-    const map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/humdata/cl3lpk27k001k15msafr9714b',//ckaoa6kf53laz1ioek5zq97qh',
       center: centerPos,
       minZoom: minZoomLevel,
-      maxZoom: minZoomLevel+1,
+      maxZoom: maxZoomLevel,
       zoom: zoomLevel,
       attributionControl: false
     });
@@ -80,6 +82,9 @@ $( document ).ready(function() {
           .addTo(map);
       }
 
+      // zoom to bounds to include all markers
+      zoomToBounds();
+
       if (isMobile) {
         $('#legend').addClass('collapsed');      
 
@@ -107,6 +112,18 @@ $( document ).ready(function() {
       content += '</table>'
     }
     $('#panel .panel-inner').html(content);
+  }
+
+  function zoomToBounds() {
+    //zoom map to bounds
+    let mapPadding = {top: 150, right: 30, bottom: 250, left: 30};
+    if (data !== undefined) {
+      let bounds = new mapboxgl.LngLatBounds();
+      data.forEach(function(feature) {
+        bounds.extend([feature['#geo+lon'],feature['#geo+lat']]);
+      });
+      map.fitBounds(bounds, {padding: mapPadding, duration: 500});
+    }
   }
 
   function initTracking() {
