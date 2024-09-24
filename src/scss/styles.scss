@@ -65,7 +65,7 @@ $endorsed: #1BB580;
 $activated: #F2645A;
 
 $drought: '\e94e';
-$cyclone-floods: '\ea4f';
+$cyclones-floods: '\ea4f';
 $drought-floods: '\ea4c';
 $floods: '\e964';
 $plague: '\ea4d';
@@ -96,6 +96,9 @@ $storms: '\e940';
 	}
 	&.drought:before {
 		content: $drought;
+	}
+	&.cyclones-floods:before {
+		content: $cyclones-floods;
 	}
 	&.drought-floods:before {
 		content: $drought-floods;
