@@ -1140,16 +1140,16 @@ a {
 /** marker vars **/
 .marker {
   background-size: 100%;
-  height: 54px;
-  margin-top: -27px;
-  width: 38px; }
+  height: 50px;
+  margin-top: -25px;
+  width: 34px; }
   .marker:before {
     content: var(--content, "");
     font-family: 'Humanitarian-Icons-v02';
-    font-size: 17px;
+    font-size: 15px;
     position: absolute;
-    top: 9px;
-    left: 10px; }
+    top: 8px;
+    left: 9px; }
   .marker.development:before {
     color: #808080; }
   .marker.endorsed:before {
@@ -1158,6 +1158,8 @@ a {
     color: #F2645A; }
   .marker.drought:before {
     content: ""; }
+  .marker.cyclones-floods:before {
+    content: ""; }
   .marker.drought-floods:before {
     content: ""; }
   .marker.floods:before {
